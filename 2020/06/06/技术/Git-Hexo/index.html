@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Ds">
   <meta name="keywords" content="">
-  <title>Welcom Wang’blog - DaShun</title>
+  <title>Hexo + Github 博客搭建 - DaShun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-01 00:00">
-      2020年6月1日 凌晨
+    <time datetime="2020-06-06 00:00">
+      2020年6月6日 凌晨
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      193 字
+      1.2k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      15
        分钟
     </span>
   
@@ -204,7 +204,117 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>很高兴能够学习会新的一项技能，搭建了自己的博客，其实明明有很多平台都可以写东西，不知道自己为什么还要折腾这个博客，重新开始书写自己的点滴。<br>可能觉得其他产品没办法满足自己的状态，比如分类，因为会写各种东西，生活、工作、兴趣，闲言碎语等，而其他平台的产品没办法做大这样，大多都是专一领域。<br>其实这里也是主要记录一些平时的只言片语的内容，希望慢慢能够慢慢整理，可以管理我的知识。<br>像其他博主一样，通过积累能够把自己的知识整理，分类起来。</p>
+              <p>Hexo + Github 博客搭建教程详述</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
+<li>安装 Node.js: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li>
+<li>​安装 Git:<br><a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">https://github.com/waylau/git-for-win</a></li>
+<li>注册 Github账号: <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li>
+</ul>
+<h2 id="Github-配置"><a href="#Github-配置" class="headerlink" title="Github 配置"></a>Github 配置</h2><ol>
+<li>登录Github 账号: <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li>
+<li>创建仓库，点击右上角的 Create a new repository :<br><a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a></li>
+<li>新建一个名为你的：“用户名.github.io”的仓库，比如说，如果我的github用户名是whritestar，那么你就新建whritestar.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是<br><a href="http://whritestar.github.io" target="_blank" rel="noopener">http://whritestar.github.io</a>（每一个<br>GitHub 账户最多只能创建一个这样可以直接使用域名访问的仓库）。<br><img src="https://img-blog.csdnimg.cn/20200606212724539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="创建"></li>
+</ol>
+<h5 id="添加秘钥-SSH-Key"><a href="#添加秘钥-SSH-Key" class="headerlink" title="添加秘钥 SSH Key"></a>添加秘钥 SSH Key</h5><p>仓库创建完成后，开始生成添加秘钥 SSH Key</p>
+<p>​在终端 (Windows:cmd) 下输入：</p>
+<pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">"Github的注册邮箱地址"</span></code></pre>
+
+<p>​一直Enter下来就可以，待秘钥生成完毕，会得到两 个文件id_rsa和id_rsa.pub，用文本编辑器打开id_rsa.pub，Ctrl + A复制里面的所有内容，然后进入<br><a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a> 把复制内容添加在这里</p>
+<p>​测试是否添加成功。在Git Bash 命令行依次输入以下命令</p>
+<pre><code class="hljs bash">ssh -T git@github.com</code></pre>
+
+<p>如果出现提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到返回You’ve successfully authenticated即成功。</p>
+<h1 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h1><h2 id="hexo是什么"><a href="#hexo是什么" class="headerlink" title="hexo是什么"></a>hexo是什么</h2><p>​Hexo是一个简单、快速、强大的基于 Github Pages 的博客框架，支持Markdown格式，有众多优秀插件和主题。</p>
+<ul>
+<li>​github:<br><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></li>
+<li>​Hexo中文官网： <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></li>
+<li>​Hexo官方使用文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li>
+</ul>
+<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><h3 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h3><p>在git bush中输入以下命令：</p>
+<pre><code class="hljs bash">npm install -g hexo</code></pre>
+
+<h3 id="hexo-初始化"><a href="#hexo-初始化" class="headerlink" title="hexo 初始化"></a>hexo 初始化</h3><p>​在电脑的某个盘新建一个名为hexo的文件夹（名字可以随便取），比如我的是D:\Blogs\hexo，由于这个文件夹将来就作为你存放代码的地方，请你最好不要随便放。</p>
+<pre><code class="hljs bash">1.定位到此文件夹
+<span class="hljs-built_in">cd</span> /d/Blogs/hexo/
+2.初始化
+hexo init</code></pre>
+
+<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：</p>
+<pre><code class="hljs sqf">├── <span class="hljs-variable">_config</span>.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── <span class="hljs-variable">_drafts</span>
+|   └── <span class="hljs-variable">_posts</span>
+└── themes</code></pre>
+<h3 id="hexo-命令"><a href="#hexo-命令" class="headerlink" title="hexo 命令"></a>hexo 命令</h3><pre><code class="hljs bash"><span class="hljs-comment">#启动本地服务器</span>
+hexo generate</code></pre>
+
+<pre><code class="hljs bash">hexo server
+<span class="hljs-comment">#在浏览器输入 http://localhost:4000/就可以看见网页和模板了</span>
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></pre>
+
+<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><p>直接使用hexo deploy部署到 Github</p>
+<pre><code class="hljs bash">hexo deploy</code></pre>
+
+<p>TP：出现如下错误：</p>
+<pre><code class="hljs bash">ERROR Deployer not found:git</code></pre>
+<p>这时候要使用下面的命令安装对应的插件</p>
+<pre><code class="hljs bash">npm install hexo-deployer-git --save</code></pre>
+<p>安装完成即可部署到Github</p>
+<h1 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h1><h2 id="配置站点"><a href="#配置站点" class="headerlink" title="配置站点"></a>配置站点</h2><p>​ 🔺 打开根目录下站点配置文件_config.yml（比如我的是D:\Blogs\hexo_config.yml），配置有关deploy的部分：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">deploy</span>:
+  <span class="hljs-selector-tag">type</span>: <span class="hljs-selector-tag">git</span>
+  repo: https://github.com/whritestar/whritestar.github.io
+  <span class="hljs-selector-tag">branch</span>: <span class="hljs-selector-tag">master</span></code></pre>
+
+<p>TP：修改的时候一定要注意:后面一定要有一个空格，否则会报错</p>
+<p>​ 🔔 <strong>repo</strong> 为你的<strong>用户名.github.io</strong>的仓库地址</p>
+<p>修改网站相关信息<br>​ 🔺 打开根目录下站点配置文件_config.yml（比如我的是D:\Workspaces\hexo_config.yml），修改网站信息</p>
+<p>​ 🔔 修改的时候一定要注意:后面一定要有一个空格，否则会报错</p>
+<p>title: 标题<br>subtitle: 副标题<br>description: 网页描述<br>author: 作者<br>language: 语言<br>​</p>
+<h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><h2 id="选择合适的主题"><a href="#选择合适的主题" class="headerlink" title="选择合适的主题"></a>选择合适的主题</h2><ul>
+<li>官方主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
+<li>例如：hexo-theme-star</li>
+</ul>
+<h2 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h2><ol>
+<li>点击合适的主题，将Github clone 地址复制</li>
+<li>​在终端输入，等待下载<pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> `对应主题的Github地址`</code></pre>
+<h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2>下载的主题文件都在 theme 目录下。<br>然后我们将 Hexo 根目录下的_config.yml 中的 theme: landscape 改为 theme:<br>star，然后重新执行 hexo g 来重新生成。</li>
+</ol>
+<p>注意：如果出现一些莫名其妙的问题，可以先执行</p>
+<pre><code class="hljs bash">hexo clean</code></pre>
+<h2 id="验证更新主题"><a href="#验证更新主题" class="headerlink" title="验证更新主题"></a>验证更新主题</h2><pre><code class="hljs bash">hexo clean   <span class="hljs-comment">#1.在本地清除缓存</span>
+
+hexo generate  <span class="hljs-comment">#2.在本地重新生成</span>
+
+hexo server  <span class="hljs-comment">#3.在本地预览主题</span></code></pre>
+<h2 id="部署到-GitHub​"><a href="#部署到-GitHub​" class="headerlink" title="部署到 GitHub​"></a>部署到 GitHub​</h2><p>如果你一切都配置好了，接下来就是把博客部署到 GitHub 上：</p>
+<pre><code class="hljs bash">hexo d</code></pre>
+
+<h1 id="常用的-hexo-命令"><a href="#常用的-hexo-命令" class="headerlink" title="常用的 hexo 命令"></a>常用的 hexo 命令</h1><pre><code class="hljs bash">常见命令：
+hexo new <span class="hljs-string">"postName"</span>      <span class="hljs-comment"># 新建文章</span>
+hexo new page <span class="hljs-string">"pageName"</span> <span class="hljs-comment"># 新建页面</span>
+hexo generate            <span class="hljs-comment"># 生成静态页面至public目录</span>
+hexo server              <span class="hljs-comment"># 开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
+hexo deploy              <span class="hljs-comment"># 部署到GitHub</span>
+hexo <span class="hljs-built_in">help</span>                <span class="hljs-comment"># 查看帮助</span>
+hexo version             <span class="hljs-comment"># 查看Hexo的版本</span>
+缩写命令：
+hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+组合命令：
+hexo s -g   <span class="hljs-comment"># 生成并本地预览</span>
+hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
+
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>我们可以在 hexo 根目录下执行命令：</p>
+<pre><code class="hljs bash">hexo new <span class="hljs-string">'my-first-blog'</span></code></pre>
+
+<p>hexo 会帮我们在_posts 下生成相关 md 文件，我们只需要打开这个文件就可以开始写博客了，用这个命令的好处是帮我们自动生成了文章创建时间。</p>
+<p>基本的建站步骤就介绍到这里了</p>
 
             </article>
             <hr>
@@ -214,7 +324,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
                     
                   </div>
                 
@@ -222,7 +332,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%84%9F%E6%82%9F/">感悟</a>
+                      <a class="hover-with-bg" href="/tags/Github/">Github</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
                   </div>
                 
@@ -235,15 +347,21 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/04/%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5/%E4%BD%A0%E5%A5%BD/">
+                      <a href="/2020/06/06/%E6%8A%80%E6%9C%AF/Github/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前言</span>
+                        <span class="hidden-mobile">Github操作和git远程管理基本教程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </div>
                   <div class="post-next col-6">
                     
+                    
+                      <a href="/2020/06/06/%E6%8A%80%E6%9C%AF/CSDN-markdown%E7%BC%96%E8%BE%91%E5%99%A8/">
+                        <span class="hidden-mobile">Markdown编辑器语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </div>
                 </div>
@@ -426,7 +544,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Welcom Wang’blog&nbsp;",
+        "Hexo + Github 博客搭建&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

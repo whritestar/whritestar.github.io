@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Ds">
   <meta name="keywords" content="">
-  <title>Hexo + Github 博客搭建 - DaShun</title>
+  <title>股市 - DaShun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -55,7 +55,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>DaShun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Wang’s Blog</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-06 00:00">
-      2020年6月6日 凌晨
+    <time datetime="2020-06-07 00:00">
+      2020年6月7日 凌晨
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      626 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      6
        分钟
     </span>
   
@@ -204,117 +204,28 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>Hexo + Github 博客搭建教程详述</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
-<li>安装 Node.js: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li>
-<li>​安装 Git:<br><a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">https://github.com/waylau/git-for-win</a></li>
-<li>注册 Github账号: <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li>
-</ul>
-<h2 id="Github-配置"><a href="#Github-配置" class="headerlink" title="Github 配置"></a>Github 配置</h2><ol>
-<li>登录Github 账号: <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li>
-<li>创建仓库，点击右上角的 Create a new repository :<br><a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a></li>
-<li>新建一个名为你的：“用户名.github.io”的仓库，比如说，如果我的github用户名是whritestar，那么你就新建whritestar.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是<br><a href="http://whritestar.github.io" target="_blank" rel="noopener">http://whritestar.github.io</a>（每一个<br>GitHub 账户最多只能创建一个这样可以直接使用域名访问的仓库）。<br><img src="https://img-blog.csdnimg.cn/20200606212724539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="创建"></li>
+              <h1 id="A股抄底指数"><a href="#A股抄底指数" class="headerlink" title="A股抄底指数"></a>A股抄底指数</h1><p>计算方法：A股市场上，市盈率低于30个股占所有个股的比例。当这个指数接近50%的时候，就是最好的入场时机。</p>
+<h1 id="ROE指标选股法"><a href="#ROE指标选股法" class="headerlink" title="ROE指标选股法"></a>ROE指标选股法</h1><p>条件：</p>
+<ol>
+<li>连续5年roe&gt;20%。<br>之所以要连续5年是为了确保这些公司的经营是稳定的，有些周期股在行业景气那几年roe会特别高，而过几年可能就跌成狗屎了，这些公司用这个选股条件就可以排除。用这个公式选出来符合条件年底个股有90只。</li>
+<li>上市时间早于2016年。<br>因为很多新股上市后业绩会变脸，所以加这个条件是为了过滤刚上市的公司。加上这个条件后符合条件的就只剩24只了。</li>
+<li>2018年净利润增速&gt;20%,2019年1季度净利润增速&gt;20%。<br>保持roe高速增长的方法有好多种，最健康的就是通过净利润的快速增长来保持高roe。因为我这个方法是年报出来后开始选的，那个时候一季报也一起公布了，所以就把这两个条件一起加进去了。  </li>
 </ol>
-<h5 id="添加秘钥-SSH-Key"><a href="#添加秘钥-SSH-Key" class="headerlink" title="添加秘钥 SSH Key"></a>添加秘钥 SSH Key</h5><p>仓库创建完成后，开始生成添加秘钥 SSH Key</p>
-<p>​在终端 (Windows:cmd) 下输入：</p>
-<pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">"Github的注册邮箱地址"</span></code></pre>
-
-<p>​一直Enter下来就可以，待秘钥生成完毕，会得到两 个文件id_rsa和id_rsa.pub，用文本编辑器打开id_rsa.pub，Ctrl + A复制里面的所有内容，然后进入<br><a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a> 把复制内容添加在这里</p>
-<p>​测试是否添加成功。在Git Bash 命令行依次输入以下命令</p>
-<pre><code class="hljs bash">ssh -T git@github.com</code></pre>
-
-<p>如果出现提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到返回You’ve successfully authenticated即成功。</p>
-<h1 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h1><h2 id="hexo是什么"><a href="#hexo是什么" class="headerlink" title="hexo是什么"></a>hexo是什么</h2><p>​Hexo是一个简单、快速、强大的基于 Github Pages 的博客框架，支持Markdown格式，有众多优秀插件和主题。</p>
-<ul>
-<li>​github:<br><a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></li>
-<li>​Hexo中文官网： <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></li>
-<li>​Hexo官方使用文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li>
-</ul>
-<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><h3 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h3><p>在git bush中输入以下命令：</p>
-<pre><code class="hljs bash">npm install -g hexo</code></pre>
-
-<h3 id="hexo-初始化"><a href="#hexo-初始化" class="headerlink" title="hexo 初始化"></a>hexo 初始化</h3><p>​在电脑的某个盘新建一个名为hexo的文件夹（名字可以随便取），比如我的是D:\Blogs\hexo，由于这个文件夹将来就作为你存放代码的地方，请你最好不要随便放。</p>
-<pre><code class="hljs bash">1.定位到此文件夹
-<span class="hljs-built_in">cd</span> /d/Blogs/hexo/
-2.初始化
-hexo init</code></pre>
-
-<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：</p>
-<pre><code class="hljs sqf">├── <span class="hljs-variable">_config</span>.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── <span class="hljs-variable">_drafts</span>
-|   └── <span class="hljs-variable">_posts</span>
-└── themes</code></pre>
-<h3 id="hexo-命令"><a href="#hexo-命令" class="headerlink" title="hexo 命令"></a>hexo 命令</h3><pre><code class="hljs bash"><span class="hljs-comment">#启动本地服务器</span>
-hexo generate</code></pre>
-
-<pre><code class="hljs bash">hexo server
-<span class="hljs-comment">#在浏览器输入 http://localhost:4000/就可以看见网页和模板了</span>
-INFO  Start processing
-INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></pre>
-
-<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><p>直接使用hexo deploy部署到 Github</p>
-<pre><code class="hljs bash">hexo deploy</code></pre>
-
-<p>TP：出现如下错误：</p>
-<pre><code class="hljs bash">ERROR Deployer not found:git</code></pre>
-<p>这时候要使用下面的命令安装对应的插件</p>
-<pre><code class="hljs bash">npm install hexo-deployer-git --save</code></pre>
-<p>安装完成即可部署到Github</p>
-<h1 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h1><h2 id="配置站点"><a href="#配置站点" class="headerlink" title="配置站点"></a>配置站点</h2><p>​ 🔺 打开根目录下站点配置文件_config.yml（比如我的是D:\Blogs\hexo_config.yml），配置有关deploy的部分：</p>
-<pre><code class="hljs css"><span class="hljs-selector-tag">deploy</span>:
-  <span class="hljs-selector-tag">type</span>: <span class="hljs-selector-tag">git</span>
-  repo: https://github.com/whritestar/whritestar.github.io
-  <span class="hljs-selector-tag">branch</span>: <span class="hljs-selector-tag">master</span></code></pre>
-
-<p>TP：修改的时候一定要注意:后面一定要有一个空格，否则会报错</p>
-<p>​ 🔔 <strong>repo</strong> 为你的<strong>用户名.github.io</strong>的仓库地址</p>
-<p>修改网站相关信息<br>​ 🔺 打开根目录下站点配置文件_config.yml（比如我的是D:\Workspaces\hexo_config.yml），修改网站信息</p>
-<p>​ 🔔 修改的时候一定要注意:后面一定要有一个空格，否则会报错</p>
-<p>title: 标题<br>subtitle: 副标题<br>description: 网页描述<br>author: 作者<br>language: 语言<br>​</p>
-<h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><h2 id="选择合适的主题"><a href="#选择合适的主题" class="headerlink" title="选择合适的主题"></a>选择合适的主题</h2><ul>
-<li>官方主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
-<li>例如：hexo-theme-star</li>
-</ul>
-<h2 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h2><ol>
-<li>点击合适的主题，将Github clone 地址复制</li>
-<li>​在终端输入，等待下载<pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> `对应主题的Github地址`</code></pre>
-<h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2>下载的主题文件都在 theme 目录下。<br>然后我们将 Hexo 根目录下的_config.yml 中的 theme: landscape 改为 theme:<br>star，然后重新执行 hexo g 来重新生成。</li>
+<p>符合条件的只有7只个股：我武生物（300357）、恒瑞医药（600276）、晨光文具（603899）、海天味业（603288）、贵州茅台（600519）、华夏幸福（600340）、华东医药（000963）</p>
+<ol start="4">
+<li>2018年的roe&gt;过去5年的平均roe。<br>因为我们的持股周期只有1年，如果是持有好几年，我们可以不用加这个公式。但是持有时间相对较短，就意味着我们选中的公司不但要是好公司，还要是在继续变好的好公司。所以roe值不但要高，还要比过去几年的平均值高。</li>
 </ol>
-<p>注意：如果出现一些莫名其妙的问题，可以先执行</p>
-<pre><code class="hljs bash">hexo clean</code></pre>
-<h2 id="验证更新主题"><a href="#验证更新主题" class="headerlink" title="验证更新主题"></a>验证更新主题</h2><pre><code class="hljs bash">hexo clean   <span class="hljs-comment">#1.在本地清除缓存</span>
-
-hexo generate  <span class="hljs-comment">#2.在本地重新生成</span>
-
-hexo server  <span class="hljs-comment">#3.在本地预览主题</span></code></pre>
-<h2 id="部署到-GitHub​"><a href="#部署到-GitHub​" class="headerlink" title="部署到 GitHub​"></a>部署到 GitHub​</h2><p>如果你一切都配置好了，接下来就是把博客部署到 GitHub 上：</p>
-<pre><code class="hljs bash">hexo d</code></pre>
-
-<h1 id="常用的-hexo-命令"><a href="#常用的-hexo-命令" class="headerlink" title="常用的 hexo 命令"></a>常用的 hexo 命令</h1><pre><code class="hljs bash">常见命令：
-hexo new <span class="hljs-string">"postName"</span>      <span class="hljs-comment"># 新建文章</span>
-hexo new page <span class="hljs-string">"pageName"</span> <span class="hljs-comment"># 新建页面</span>
-hexo generate            <span class="hljs-comment"># 生成静态页面至public目录</span>
-hexo server              <span class="hljs-comment"># 开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
-hexo deploy              <span class="hljs-comment"># 部署到GitHub</span>
-hexo <span class="hljs-built_in">help</span>                <span class="hljs-comment"># 查看帮助</span>
-hexo version             <span class="hljs-comment"># 查看Hexo的版本</span>
-缩写命令：
-hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-组合命令：
-hexo s -g   <span class="hljs-comment"># 生成并本地预览</span>
-hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
-
-<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>我们可以在 hexo 根目录下执行命令：</p>
-<pre><code class="hljs bash">hexo new <span class="hljs-string">'my-first-blog'</span></code></pre>
-
-<p>hexo 会帮我们在_posts 下生成相关 md 文件，我们只需要打开这个文件就可以开始写博客了，用这个命令的好处是帮我们自动生成了文章创建时间。</p>
-<p>基本的建站步骤就介绍到这里了</p>
+<p>最后剩：我武生物、贵州茅台、晨光文具、恒瑞医药。  </p>
+<p>前面3个条件用问财搜就可以了，明年等年报出来了换一下时间就可以了。最后一个条件要自己用计算器算一下，只要会除法算平均值就可以了。<br>筛选工具：同花顺i问财：<a href="http://www.iwencai.com/" target="_blank" rel="noopener">http://www.iwencai.com/</a></p>
+<p>时间：2019年11月28日</p>
+<h1 id="高瓴资本持股跟踪"><a href="#高瓴资本持股跟踪" class="headerlink" title="高瓴资本持股跟踪"></a>高瓴资本持股跟踪</h1><p>抄高瓴作业  </p>
+<p>3个理由：</p>
+<ol>
+<li>长期持有</li>
+<li>历史表现好</li>
+<li>持仓较为集中</li>
+</ol>
+<p>筛选工具：同花顺i问财：<a href="http://www.iwencai.com/" target="_blank" rel="noopener">http://www.iwencai.com/</a><br>直接输入：高瓴资本  即可筛选出高瓴持股的个股。</p>
 
             </article>
             <hr>
@@ -324,7 +235,7 @@ hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+                      <a class="hover-with-bg" href="/categories/%E9%87%91%E8%9E%8D%E8%B4%A2%E7%BB%8F/">金融财经</a>
                     
                   </div>
                 
@@ -332,9 +243,7 @@ hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Github/">Github</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/%E9%87%91%E8%9E%8D%EF%BC%8C%E8%82%A1%E5%B8%82/">金融，股市</a>
                     
                   </div>
                 
@@ -347,9 +256,9 @@ hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/06/CSDN-markdown%E7%BC%96%E8%BE%91%E5%99%A8/">
+                      <a href="/2020/06/07/%E7%94%9F%E6%B4%BB/%E5%90%90%E5%8F%B8%E9%9D%A2%E5%8C%85/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Markdown编辑器语法</span>
+                        <span class="hidden-mobile">唯有美食不可辜负</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -357,8 +266,8 @@ hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/06/Github/">
-                        <span class="hidden-mobile">Github操作和git远程管理基本教程</span>
+                      <a href="/2020/06/07/%E7%94%9F%E6%B4%BB/%E7%BE%8E%E9%A3%9F%E7%AF%87-%E7%83%A4%E7%AE%B1%E7%AF%87/">
+                        <span class="hidden-mobile">唯有美食不可辜负</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -544,7 +453,7 @@ hexo d -g   <span class="hljs-comment"># 生成并上传</span></code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo + Github 博客搭建&nbsp;",
+        "股市&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
