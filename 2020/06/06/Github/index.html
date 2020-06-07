@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ds">
+  <meta name="keywords" content="">
+  <title>Github操作和git远程管理基本教程 - DaShun</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>DaShun</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-06-06 00:00">
+      2020年6月6日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      842 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>一个小白的github的开始<br>是从一个<a href="https://www.bilibili.com/video/BV1Xx411m7kn?p=8" target="_blank" rel="noopener">B站UP主</a>视频资源学习整理，方便日后查看。</p>
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ol>
+<li><p>什么是Git<br>Git是一个免费、开源的版本控制软件</p>
+</li>
+<li><p>什么是版本控制系统<br>版本控制是一种记录一个或若干个文件内容变化，以便将来查阅特定版本修订情况的系统。（记录文件的所有历史变化、随时可恢复到任何一个历史状态、多人协作开发或修改错误恢复）</p>
+</li>
+<li><p>什么是Github<br>Github是全球最大的社交编程及代码托管网站（<a href="https://github.com/）。" target="_blank" rel="noopener">https://github.com/）。</a><br>Github可以托管各种git库，并提供一个web界面（用户名.github.io/仓库名）</p>
+</li>
+<li><p>Github和Git是什么关系<br>Git是版本控制软件<br>Github是项目代码托管的平台，借助git来管理项目代码</p>
+</li>
+<li><p>为什么学习github<br>学习优秀的开源项目<br>关注行业前辈了解最新的行业动态<br>借助github托管项目代码</p>
+</li>
+</ol>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="Github主页"><a href="#Github主页" class="headerlink" title="Github主页"></a>Github主页</h3><p><img src="https://img-blog.csdnimg.cn/20200606171837413.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="主页"></p>
+<h3 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h3><p><img src="https://img-blog.csdnimg.cn/20200606171426579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="个人主页"></p>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ol>
+<li>仓库（<strong>Repository</strong>）<br>仓库用来存放项目代码，每个项目对应一个仓库，多个开源项目则有多个仓库</li>
+<li>收藏（<strong>Star</strong>）<br>收藏项目，方便下次查看</li>
+<li>复制克隆项目（<strong>Fork</strong>）<br>该fork的项目时独立存在的<br>复制过来自己用</li>
+<li>发起请求（<strong>Pull Request</strong>）<br>你新增了功能，觉得不错，想和原本项目一起</li>
+<li>关注（<strong>Watch</strong>）<br>关注项目，当项目更新可以接收到通知</li>
+<li>事务卡片（<strong>Issue</strong>）<br>发现代码BUG，但是目前没有成型代码，需要讨论时用；</li>
+</ol>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>一个git库（仓库）对应一个开源项目，通过git管理git库。</p>
+<ol>
+<li><p>创建仓库：<br><img src="https://img-blog.csdnimg.cn/20200606154947288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="创建仓库"></p>
+</li>
+<li><p>仓库主页详情说明<br><img src="https://img-blog.csdnimg.cn/20200606155016596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="主页"></p>
+<h2 id="仓库管理"><a href="#仓库管理" class="headerlink" title="仓库管理"></a>仓库管理</h2></li>
+<li><p>创建文件<br><img src="https://img-blog.csdnimg.cn/20200606155847958.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="创建文件"><br><img src="https://img-blog.csdnimg.cn/20200606160928486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="文件名"><br><img src="https://img-blog.csdnimg.cn/20200606160109556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="概括"><br><img src="https://img-blog.csdnimg.cn/20200606160143416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="目的"></p>
+</li>
+<li><p>编辑文件<br><img src="https://img-blog.csdnimg.cn/20200606160218508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="编辑文件"><br><img src="https://img-blog.csdnimg.cn/20200606160244839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="修改/编辑"><br><img src="https://img-blog.csdnimg.cn/20200606160327338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="名字"><br><img src="https://img-blog.csdnimg.cn/20200606161030749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+</li>
+<li><p>删除操作<br>可在commits按钮查看删除信息</p>
+</li>
+<li><p>收缩仓库文件 使用快捷键t</p>
+</li>
+</ol>
+<h2 id="Github-Isues"><a href="#Github-Isues" class="headerlink" title="Github Isues"></a>Github Isues</h2><p>作用：发现代码BUG，但是目前没有成型的代码，需要讨论时用；或者使用开源项目出现问题时使用。（其实就是一个交流的地方）</p>
+<h1 id="Git安装与使用"><a href="#Git安装与使用" class="headerlink" title="Git安装与使用"></a>Git安装与使用</h1><p>目的：通过git 管理github托管项目代码</p>
+<h2 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h2><p>下载安装地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a><br>安装适合自己电脑的版本。</p>
+<h2 id="Git基本流程"><a href="#Git基本流程" class="headerlink" title="Git基本流程"></a>Git基本流程</h2><h3 id="Git工作区域"><a href="#Git工作区域" class="headerlink" title="Git工作区域"></a>Git工作区域</h3><p><img src="https://img-blog.csdnimg.cn/20200606160749139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<h3 id="Git工作流程"><a href="#Git工作流程" class="headerlink" title="Git工作流程"></a>Git工作流程</h3><p>向仓库添加文件流程<br><img src="https://img-blog.csdnimg.cn/20200606173606865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="流程"></p>
+<h3 id="Git初始化及仓库创建和操作"><a href="#Git初始化及仓库创建和操作" class="headerlink" title="Git初始化及仓库创建和操作"></a>Git初始化及仓库创建和操作</h3><h4 id="基本信息设置"><a href="#基本信息设置" class="headerlink" title="基本信息设置"></a>基本信息设置</h4><p>打开安装的 git，输入以下命令：</p>
+<pre><code class="hljs bash">1.设置用户名
+git config --global user.name <span class="hljs-string">'用户名‘</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">2.设置用户名邮箱</span>
+<span class="hljs-string">git config --global user.email '</span>邮箱‘</code></pre>
+
+<h4 id="初始化一个新的仓库"><a href="#初始化一个新的仓库" class="headerlink" title="初始化一个新的仓库"></a>初始化一个新的仓库</h4><ol>
+<li><p>创建文件夹<br><img src="https://img-blog.csdnimg.cn/20200606175045284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+</li>
+<li><p>在文件内初始化git（创建git仓库）【此为本地工作区域文件】</p>
+<pre><code class="hljs bash">1.创建一个名为<span class="hljs-built_in">test</span>的文件夹
+<span class="hljs-built_in">cd</span> <span class="hljs-built_in">test</span>
+
+2.创建隐藏文件.git
+git init</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200606175439199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>此文件存储仓库所有信息。</p>
+</li>
+<li><p>向仓库添加文件<img src="https://img-blog.csdnimg.cn/20200606180223999.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="创建文件"><br><img src="https://img-blog.csdnimg.cn/20200606180343286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200606180458773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+</li>
+<li><p>修改仓库文<br>件<br><img src="https://img-blog.csdnimg.cn/20200606201554456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="修改"><br><img src="https://img-blog.csdnimg.cn/20200606201703703.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200606201813183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+</li>
+<li><p>删除文件<br><img src="https://img-blog.csdnimg.cn/20200606201902301.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<h2 id="Git管理远程仓库"><a href="#Git管理远程仓库" class="headerlink" title="Git管理远程仓库"></a>Git管理远程仓库</h2><p>目的：备份，实现代码共享集中化管理</p>
+</li>
+</ol>
+<h3 id="本地同步远程仓库流程"><a href="#本地同步远程仓库流程" class="headerlink" title="本地同步远程仓库流程"></a>本地同步远程仓库流程</h3><p><img src="https://img-blog.csdnimg.cn/20200606202303525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="push"></p>
+<h4 id="Git克隆本地操作"><a href="#Git克隆本地操作" class="headerlink" title="Git克隆本地操作"></a>Git克隆本地操作</h4><p>目的：将远程仓库（github对应的项目）复制到本地。</p>
+<p>下载代码：</p>
+<pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> （仓库地址）项目链接</code></pre>
+
+<h4 id="将本地仓库同步到git远程仓库中"><a href="#将本地仓库同步到git远程仓库中" class="headerlink" title="将本地仓库同步到git远程仓库中"></a>将本地仓库同步到git远程仓库中</h4><pre><code class="hljs bash">git push</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200606203425151.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>TP：<br><img src="https://img-blog.csdnimg.cn/20200606204536818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dkc2h1bg==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Github/">Github</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/06/Git-Hexo/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo + Github 博客搭建</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/04/%E4%BD%A0%E5%A5%BD/">
+                        <span class="hidden-mobile">前言</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+    <!-- 网站运行时间的设置 -->
+    <div  style="margin: o.25rem,0;font-size: 0.85rem;text-align: center;">
+    <!-- 网站运行时间的设置 -->
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("05/06/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Github操作和git远程管理基本教程&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
