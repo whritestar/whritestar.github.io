@@ -203,6 +203,12 @@
         <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
+              <p class="note note-info">
+                
+                  本文最后更新于：2 天前
+                
+              </p>
+            
             <article class="markdown-body">
               <h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
 <h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
@@ -473,7 +479,7 @@ cond(no)-&gt;op</code></pre>
       <script>
         var now = new Date();
         function createtime() {
-            var grt= new Date("05/06/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+            var grt= new Date("06/05/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
             now.setTime(now.getTime()+250);
             days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
             hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
@@ -481,7 +487,7 @@ cond(no)-&gt;op</code></pre>
             mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
             seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
             snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+            document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
             document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
         }
       setInterval("createtime()",250);
@@ -549,7 +555,7 @@ cond(no)-&gt;op</code></pre>
         '  ',
         "Markdown编辑器语法&nbsp;",
       ],
-      cursorChar: "💓",
+      cursorChar: "❤️",
       typeSpeed: 70,
       loop: false,
     });

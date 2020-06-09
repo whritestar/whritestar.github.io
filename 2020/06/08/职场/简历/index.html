@@ -203,6 +203,12 @@
         <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
             <article class="markdown-body">
               <h1 id="不合格简历几个通病："><a href="#不合格简历几个通病：" class="headerlink" title="不合格简历几个通病："></a>不合格简历几个通病：</h1><ol>
 <li><p>无法让人抓住重点，项目经验和工作经验洋洋洒洒写了一大堆，什么事情都做，看起来很全能</p>
@@ -389,7 +395,7 @@
       <script>
         var now = new Date();
         function createtime() {
-            var grt= new Date("05/06/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+            var grt= new Date("06/05/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
             now.setTime(now.getTime()+250);
             days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
             hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
@@ -397,7 +403,7 @@
             mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
             seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
             snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+            document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
             document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
         }
       setInterval("createtime()",250);
@@ -465,7 +471,7 @@
         '  ',
         "如何写好一份简历？&nbsp;",
       ],
-      cursorChar: "💓",
+      cursorChar: "❤️",
       typeSpeed: 70,
       loop: false,
     });
