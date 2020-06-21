@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ds">
+  <meta name="keywords" content="">
+  <title>你需要知道的数据分析工具 - Ds</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Wang’s Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Me
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-06-21 00:00">
+      2020年6月21日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：40 分钟前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="数据分析工具"><a href="#数据分析工具" class="headerlink" title="数据分析工具"></a>数据分析工具</h1><p>BI（BusinessIntelligence）即商业智能，越来越多的智能软件供应商推出可视化数据分析工具，应对企业业务人员的大数据分析需求。<br>然而如果你觉得不是数据分析专业、没有挖掘算法基础就无法使用BI工具？NO，自助式分析工具已经让数据产品链条变得大众化。<br>为了更好地帮助读者选择分析工具，本文将为介绍数说立方、数据观、魔镜等11款BI-商业智能产品，排名不分先后！</p>
+<p>各数据分析工具功能列表对比<br><img src="http://image.woshipm.com/wp-files/2016/04/157.png" srcset="/img/loading.gif" alt=""></p>
+<p>详细介绍</p>
+<h1 id="数说立方"><a href="#数说立方" class="headerlink" title="数说立方"></a>数说立方</h1><p>数说立方是数说故事新推出的一款面向数据分析师的在线商业智能产品。最重要的特点是配备百亿级社交数据库，同时支持全网公开数据实时抓取，从数据源端解决分析师难点；另外数说立方搭载了分布式搜索、语义分析、数据可视化三大引擎系统的海量计算平台，实现数据处理“探索式分析”和“秒级响应”的两个核心功能。同时数说立方是数说故事三大主打产品之一，并与其他两大产品数说聚合和数说雷达实现从数据源、数据分析、到数据展示完整的数据解决方案。</p>
+<p>优点：  </p>
+<ul>
+<li>即便是个人免费版，体验和功能仍然非常好；   </li>
+<li>与自家产品“数说聚合”的无缝接入，支持定向抓取微信、微博等数据；  </li>
+<li>功能完善，集数据处理、特征工程、建模、文本挖掘为一体的机器学习平台；  </li>
+<li>可视化视图展现、友好的客户感知页面；  </li>
+<li>支持SAAS，私有化部署，有权限管理； </li>
+</ul>
+<p>缺点：  </p>
+<ul>
+<li>产品新上市，操作指导页不太完善；  </li>
+<li>体验过程中有一些小bug；<br>体验网址：<a href="http://cube.datastory.com.cn/" target="_blank" rel="noopener">http://cube.datastory.com.cn/</a></li>
+</ul>
+<h1 id="数加平台"><a href="#数加平台" class="headerlink" title="数加平台"></a>数加平台</h1><p>数加是阿里云发布的一站式大数据平台，可以提供数据采集、结构化、加工到展示分析整套的一站式数据服务。 可采集不同系统及物理存储的源头数据，在分布式计算平台上进行数据的深度整合、计算、挖掘，将计算的结果通过可视化的工具进行个性化的数据分析和展现，也可直观的展示分析现有云上业务系统的数据库数据。</p>
+<p>优点：</p>
+<ul>
+<li><p>有完整的产品规划，功能完善；</p>
+</li>
+<li><p>图形展示和客户感知良好；</p>
+</li>
+<li><p>提供SQL查询；<br>缺点：</p>
+</li>
+<li><p>需要捆绑阿里云才能使用，一般用户还不能真正使用起来；</p>
+</li>
+<li><p>部分体验功能一般，有一定的学习成本；</p>
+</li>
+</ul>
+<p>体验网址：<a href="https://data.aliyun.com" target="_blank" rel="noopener">https://data.aliyun.com</a></p>
+<h1 id="Tableau"><a href="#Tableau" class="headerlink" title="Tableau"></a>Tableau</h1><p>Tableau是目前市面上较为成功的BI工具。产品既有针对性，又有普适性。拖放式界面，操作简单。数据兼容性强，适用于多种数据文件与数据库，同时也兼容多平台，windows、mac、Online均可使用。而且重要的一点是免费为用户安排现场培训或按需求进行在线培训。</p>
+<p>优点：</p>
+<ul>
+<li>处于行业领导者地位，功能完善；</li>
+<li>有较好的图形展现与客户感知；</li>
+<li>新产品开始支持云端展现，但是需要客户端支持；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>相比于商业智能BI，更像一个基于数据查询的数据展示工具；</li>
+<li>处理不规范数据、转化复杂模型比较难；</li>
+<li>无法处理大量数据；</li>
+<li>国内网络连接Online版速度较慢；</li>
+</ul>
+<p>体验网址：<a href="http://www.tableau.com/zh-cn" target="_blank" rel="noopener">http://www.tableau.com/zh-cn</a></p>
+<h1 id="Qlik"><a href="#Qlik" class="headerlink" title="Qlik"></a>Qlik</h1><p>QlikView只需轻轻单击几下，就可以对所有数据源进行合并、搜索、可视化和分析，可在不影响性能的前提下连接到多个数据源；其次视图种类丰富，界面简洁，互动性强，总体来说是一款简单易用的BI产品。Qlik用户可通过各类可视化效果，将Qlik扩展到任何应用程序中。另外用户也可以通过使用标准的和最新的网络API，可将可视化效果数据嵌入网站或应用程序。</p>
+<p>优点：</p>
+<ul>
+<li>产品功能完善，图形展现和客户感知良好；</li>
+<li>支持SAAS，有权限管理功能；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>有一定的学习成本；</li>
+<li>报表规范性要求很高；</li>
+<li>数据抓取功能都非常弱，需要有非常好的数据仓库作为基础；</li>
+</ul>
+<p>体验网址：<a href="http://global.qlik.com/cn" target="_blank" rel="noopener">http://global.qlik.com/cn</a></p>
+<h1 id="Spotfire"><a href="#Spotfire" class="headerlink" title="Spotfire"></a>Spotfire</h1><p>Spotfire服务对象是一线工作人员和日常决策人员，其交互界面形象易懂，无需写脚本语言和编写程序就可以对数据进行添加、分离操作。内置搜索引擎，可以随意查找任意信息。支持R、S+等统计、挖掘功能；有丰富、开源的R模型。标记有自身特色，提供了过滤、钻取等功能，多个标记同时还可以实现图形化的集合运算。</p>
+<p>优点：</p>
+<ul>
+<li>交互界面形象易懂，即使是普通的业务人员也能轻而易举地进行复杂的数据分析；</li>
+<li>不一定要建数据仓库，还可以直接从多个异构数据源提取数据进行分析；</li>
+<li>支持SAAS，有权限管理功能；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>SAAS版只支持30M，由于是国外服务器所以上传很慢；</li>
+<li>不适合中国式的固定报表；</li>
+<li>进军中国市场较晚，国内案例较少；</li>
+<li>工具的适应性范围广，但是难易跨度大；</li>
+</ul>
+<p>体验网址：<a href="http://spotfire.tibco.com" target="_blank" rel="noopener">http://spotfire.tibco.com</a></p>
+<h1 id="神策分析"><a href="#神策分析" class="headerlink" title="神策分析"></a>神策分析</h1><p>神策分析的产品有完整的使用文档，每个模块都有详细的使用说明以及示例，降低了用户的学习成本。而且支持私有部署、任意维度的交叉分析，并帮助客户搭建专属的数据仓库。目前提供事件分析、漏斗分析、留存分析、数据管理等功能，未来预计会增加用户分群、用户人群分析、推送和异常维度组合挖掘等</p>
+<p>优点：</p>
+<ul>
+<li>专注于用户行为数据分析，不追求做大而追求做全；</li>
+<li>有详细的产品使用文档以及案例；</li>
+<li>提供SQL查询；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>更多的是demo示例，不能开箱即用；</li>
+<li>纯dashboard展示，并不能对单独一块数据作自定义分析；</li>
+</ul>
+<p>体验网址：<a href="http://www.sensorsdata.cn/" target="_blank" rel="noopener">http://www.sensorsdata.cn/</a></p>
+<h1 id="BDP"><a href="#BDP" class="headerlink" title="BDP"></a>BDP</h1><p>BDP个人版免费，只需导入数据，设定分析维度，即可实时得到图表分析结果。示例和视频教学很细致，交互页面友好。每次数据更新，对应的图表也会自动更新，可以免去一些重复制作的工作。分享环节也很贴心，报告可以一键导出为PPT、邮件发送，也可直接生成链接分享。</p>
+<p>优点：</p>
+<ul>
+<li>产品支持移动端；手机同步呈现最新数据</li>
+<li>首次登陆的用户可以使用免费数据；</li>
+<li>操作体验流畅，界面友好，功能全，总体来说是一款不错的产品；</li>
+<li>即便是个人免费版，体验和功能仍然非常好；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>官网的介绍比较简单；</li>
+</ul>
+<p>体验网址：<a href="https://me.bdp.cn/home.html" target="_blank" rel="noopener">https://me.bdp.cn/home.html</a></p>
+<h1 id="永洪BI"><a href="#永洪BI" class="headerlink" title="永洪BI"></a>永洪BI</h1><p>永洪BI是一款可在前端进行多维分析和报表展现的BI软件。支持拖拽操作，数据源格式多样，提供不同级别的查询支持，支持跨库跨源连接。另外永洪提供了一款数据存储、数据处理的软件——MPP数据集市，可与BI打通，使得数据查询，钻取和展示的速度大幅度提高。不过其产品用户体验一般，拖拽过于自由，导致仪表盘布局不好控制；主题样式虽多但是给人感觉样式还是很传统。</p>
+<p>优点：</p>
+<ul>
+<li>商业流程完善，给人专业的感觉；</li>
+<li>产品定制化的版本效果不错；</li>
+<li>支持的数据接入较多；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>SAAS版体验很差，有一定的学习成本；</li>
+<li>UI的视觉效果一般，整体可视化效果不够现代化；</li>
+</ul>
+<p>体验网址：<a href="http://www.yonghongtech.com/index.html" target="_blank" rel="noopener">http://www.yonghongtech.com/index.html</a></p>
+<h1 id="数据观"><a href="#数据观" class="headerlink" title="数据观"></a>数据观</h1><p>数据观的功能设计理念是极简、无门槛，所以它最大的特点就是简单。数据观数据来自云端，如：百度 网盘、微盘、salesforce等。数据上传后，马上有推荐图表，引导明确。另外产品的使用没有技术门槛，无需专业IT知识，同时适用于非专业分析师出身的业务人员，可以快速将数据转化成直观的图表，适合一开始接触数据分析工具的非专业数据从业人员。</p>
+<p>优点：</p>
+<ul>
+<li>注册只需填写邮箱，且支持明道账号登陆；</li>
+<li>使用引导明确，支持salesforce、百度云数据导入；</li>
+<li>分析结果支持链接分享，大大降低用户的沟通成本；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不支持超过20MB的数据上传；</li>
+<li>数据导入后，数据分析体验方面存在bug；</li>
+<li>产品的使用以点击为主，不支持拖拽操作；</li>
+</ul>
+<p>体验网址：<a href="http://www.shujuguan.cn" target="_blank" rel="noopener">http://www.shujuguan.cn</a></p>
+<h1 id="FineBI"><a href="#FineBI" class="headerlink" title="FineBI"></a>FineBI</h1><p>FineBI分为数据处理、可视分析和分享公用三大功能模块。支持多种数据源，图表风格清爽美观，可选择任意维度分析。分析页面由控件和组件组成，控件和组件的数量是可以添加至任意多个，但是布局的交互比较僵硬，且使用逻辑有点乱，引导不明确。需要安装本地客户端才能使用。</p>
+<p>优点：</p>
+<ul>
+<li>有较为详细的行业案例与技术方案；</li>
+<li>产品演示和资源中心也较为清晰</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>需要使用客户端，增加了使用的不便利性</li>
+<li>只有仪表盘展示，BI报表需要另一款产品；</li>
+<li>无法处理大量的数据；</li>
+</ul>
+<p>体验网址：<a href="http://www.finebi.com/" target="_blank" rel="noopener">http://www.finebi.com/</a></p>
+<h1 id="魔镜"><a href="#魔镜" class="headerlink" title="魔镜"></a>魔镜</h1><p>魔镜支持自动拖拽建模，同时可视化效果库十分酷炫。用户可以邀请团队成员到自己的项目，合作进行探索分析，并且按照需求有效控制访问数据的成员权限。产品模块规划完整，有基础企业版到hadoop等5种选择为，而且可以支持定制化服务。但是可能是云平台版的缘故，使用过程中出现不少BUG，企业版的体验可能会相对好一点。</p>
+<p>优点：</p>
+<ul>
+<li>产品模块的规划比较健全，其中包括数据源导入、数据分析、仪表盘、数据挖掘和数据工厂；</li>
+<li>官网的设计不错，模板选择性大，颜值控可能会喜欢；</li>
+<li>工具使用指导清晰，使用篇和方法篇等比较详细；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>产品存在较多的BUG，UI和功能相对其他产品来说较简陋；</li>
+<li>部分产品模块并不能切实用于数据分析；</li>
+</ul>
+<p>体验网址：<a href="http://www.moojnn.com" target="_blank" rel="noopener">http://www.moojnn.com</a></p>
+<p>选择一款适用的BI产品，能够大大简化数据分析的繁杂工作，提高分析效率与质量。当然，以上每个工具各有优点，工具地址都给大家了，接下来就是轮到你动手的时候了，找一个自己喜欢的工具，开始吧！</p>
+<h1 id="几种简单工具"><a href="#几种简单工具" class="headerlink" title="几种简单工具"></a>几种简单工具</h1><p>运营可以结合自己的实际需要采用。</p>
+<p>Excel 是最常见、最基础的数据分析工具，Excel 里面的图表、函数、透视表能满足大家基本的需求。Access 是微软 office 系列套装的一部分，是一种小型的关系数据库；当excel数据量很大、表格之间各种关联、查询、更新频繁的时候，Access就是一种非常不错的选择。<br>Python是一种高级的编程语言，近年来发展很快，它可以用来做数据分析、编程或爬虫；R语言是一种数据分析工具，在统计学中广泛使用。目前，Python被广泛用来编写爬虫程序，获取网上的信息，这是对运营人员非常有帮助的。<br>Google Analytics、百度统计、友盟是常见的网站流量分析工具，Mixpanel、Heap、GrowingIO属于用户行为数据分析工具，较前者功能更加丰富、分析更细致。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%A7%E5%93%81-%E8%BF%90%E8%90%A5/">产品&运营</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/21/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/html%E7%AC%94%E8%AE%B0%E8%A6%81%E7%82%B9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HTML+CSS笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/21/%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5/%E5%A2%9E%E9%95%BF%E8%BF%90%E8%90%A5/">
+                        <span class="hidden-mobile">做增长前的思考</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+    <!-- 网站运行时间的设置 -->
+    <div  style="margin: o.25rem,0;font-size: 0.85rem;text-align: center;">
+    <!-- 网站运行时间的设置 -->
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("06/01/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "你需要知道的数据分析工具&nbsp;",
+      ],
+      cursorChar: "❤️",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

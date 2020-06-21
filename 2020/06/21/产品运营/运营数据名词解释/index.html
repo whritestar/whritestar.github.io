@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ds">
+  <meta name="keywords" content="">
+  <title>你需要知道的运营指标释义 - Ds</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Wang’s Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Me
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-06-21 00:00">
+      2020年6月21日 凌晨
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      78
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：39 分钟前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p>很多运营和产品经理在刚入门时，都会对一些数据指标很模糊（这些花花绿绿的是啥玩意儿）。尤其是与产品团队和运营扯需求、与开发谈指标、谈实现等场景，数据指标就更为常见。假如我们对指标不了解、没有概念，则会被多方质疑你的专业能力，同时你也无法提升“数据驱动业务、数据驱动产品、数据驱动设计”的核心能力。</p>
+<p>关注数据指标，不仅仅是产品经理或运营的“专利”，作为交互和UI设计师也需要掌握这方面的技能，来帮助我们产出更贴近用户行为的设计。同时，</p>
+<p>监测产品数据也有2个重要作用：<br>一是可以监控产品迭代中的问题点和设计点、运营和市场活动的收入水平等，看看他们目前处于什么状态，也可以为后续产品迭代的方向提供参考帮助。<br>二是通过对数据的挖掘和分析，可以发现新的商业机会和产品爆发点，也就是近两年咱们经常听到的数据增长、用户增长、增长设计概念。</p>
+<p>因此，作为一名运营或产品经理必须要了解与业务相关的核心数据指标。由于所在领域不同、业务不同，因此团队所关注的数据侧重点也不同。今天就从“网页基础指标、用户数据指标、如何获取数据指标、产品设计的生命周期”来梳理我们产品设计者常见的指标维度。</p>
+<h1 id="一、什么是数据指标"><a href="#一、什么是数据指标" class="headerlink" title="一、什么是数据指标"></a>一、什么是数据指标</h1><p>它是对当前业务有参考价值的统计数据，是通过对于业务需求的进一步抽象，并进行数据埋点后，加工出来的一套计算规则，并通过有效的方法论和数据可视化呈现，最终能够解释业务变化和用户行为。<br>当然，不是所有的数据指标都叫指标，只有对当前业务有参考价值的指标才可称作指标，同时要具备：可统计、可分析、可监测的特点。</p>
+<h1 id="二、网页基础指标"><a href="#二、网页基础指标" class="headerlink" title="二、网页基础指标"></a>二、网页基础指标</h1><p>先了解下流量的概念：分为站外流量来源和站内流量路径。以下就拿电商产品举例：</p>
+<ul>
+<li><p>站外流量：通过其他平台或外界媒体进入到你的店铺就是站外流量。又分为免费和付费，免费有自然流量和搜索流量（比如在百度搜你店铺的名称并点击进入，这就是从免费的外界平台进入），而付费则主要是一些广告投放的流量（比如将你的店铺链接付费植入到某公众号，让他帮你推广，既从他公众号进入店铺的流量）。</p>
+</li>
+<li><p>站内流量：通过平台内的推荐入口或者搜索路径等方式，进入到你的店铺就是站内流）。主要指用户在网站内的行为路径。</p>
+</li>
+</ul>
+<h2 id="PV（页面浏览量）"><a href="#PV（页面浏览量）" class="headerlink" title="PV（页面浏览量）"></a>PV（页面浏览量）</h2><p>用户每1次对网站中的每个网页访问（成功访问/进入）均被记录1次。用户对同一页面的多次访问，访问量累计。在一定统计周期内用户每次刷新网页1次也被计算1次。</p>
+<p>理论上PV与来访者数量成正比，但是它不能精准决定页面的真实访问数，比如同一个IP地址通过不断的刷新页面，也可以制造出非常高的PV。</p>
+<h2 id="UV（独立访客人数）"><a href="#UV（独立访客人数）" class="headerlink" title="UV（独立访客人数）"></a>UV（独立访客人数）</h2><p>访问网站的一台电脑客户端为一个访客。00:00~24:00内相同的客户端只被计算一次。</p>
+<p>使用独立用户作为统计量，可以更加精准的了解一个时间段内，实际上有多少个访问者来到了相应的页面。</p>
+<h2 id="VV（用户访问次数）"><a href="#VV（用户访问次数）" class="headerlink" title="VV（用户访问次数）"></a>VV（用户访问次数）</h2><p>当用户完成浏览并退出所有页面就算完成了一次访问，再次打开浏览时，VV数+1。VV同时也是视频播放次数（Video View）的简称。</p>
+<h2 id="PV、UV、VV有啥区别？"><a href="#PV、UV、VV有啥区别？" class="headerlink" title="PV、UV、VV有啥区别？"></a>PV、UV、VV有啥区别？</h2><p>比如你上午打开了站酷，访问了两个作品页面并关闭网页。下午又打开了站酷，访问了五个作品页面。则当日统计结果为：PV=7、UV=1、VV=2<br><img src="https://note.youdao.com/yws/public/resource/5b9115d331343583be2e7bdd9c3afdae/xmlnote/WEBRESOURCEb6d401a0314872ec999923a3260126f1/2788" srcset="/img/loading.gif" alt=""></p>
+<h2 id="跳出率"><a href="#跳出率" class="headerlink" title="跳出率"></a>跳出率</h2><p>一个非常重要的指标，表示用户来到网站后，且没有进行操作就直接离开的比例，代表着陆页面（访客进入网站的第一个页面）是否对用户有吸引力，常用的计算方式是落地页面的访问量除以总访问量。</p>
+<p>比如，在一个统计时间内，网站有1000个不同用户从某个链接进入，其中有50人没有二次浏览行为，是直接退出网站的，那么这个链接的网站跳出率为：50/1000=5%。然而有些退出的行为不能作为退出考虑，比如页面上刻意添加的导出链接，如合作伙伴的网站等，还有联系我们，付款页面等，都不算是负面的跳出，所以要根据不同情况统计有效的数据才能得出可靠的跳出率。</p>
+<p>统计一个网站的跳出率是非常有必要的，能帮助产品提高用户粘性。跳出率高，说明用户体验做得不好，用户进去就跳出去了，着陆页没有满足用户的期望与需求，或是人群定位不精准。相反如果跳出率较低，说明用户体验做的很好，最起码用户能在第一时间获取自己需要的内容，并且可能还会二次光顾。</p>
+<h2 id="退出率"><a href="#退出率" class="headerlink" title="退出率"></a>退出率</h2><p>针对网站内某一个特定的页面而言，退出率是衡量从这个页面退出网站的比例，通过一个页面的退出次数除以访问次数。</p>
+<p>退出率反映了网站对用户的吸引力，如果退出百分比很高，说明用户仅浏览了少量的页面便离开了，因此需要改善网站的内容来吸引用户，解决用户的内容诉求。</p>
+<h2 id="跳出率与退出率又有啥区别？"><a href="#跳出率与退出率又有啥区别？" class="headerlink" title="跳出率与退出率又有啥区别？"></a>跳出率与退出率又有啥区别？</h2><p>跳出率是指用户进入网站起，没进行什么跳转操作，又从这个页面退出或关闭的比例。退出率则是无论用户从哪个页面进入网站，最终从这个页面退出的比例。</p>
+<p>跳出率适用于访问的着陆页 （即用户成功访问的第一个页面），而退出率则适用于任何访问成功并退出的页面，既用户在网站上访问的最后一个页面 。退出率通常针对局部的页面来统计，比如支付流程退出率高，那就要针对现状对流程做优化。但站在网站总体的角度统计退出率没啥意义，因为有访问网站，就必然有离开网站。而跳出率则可以适用于着陆页面，也可适用于网站整体。</p>
+<h2 id="平均访问时长"><a href="#平均访问时长" class="headerlink" title="平均访问时长"></a>平均访问时长</h2><p>指在特定统计时间段内，浏览网站的一个页面或整个网站时，用户所停留的总时间除以该页面或整个网站的访问次数的比例。</p>
+<p>如用户在网站特定时间内总停留时间为1000秒，在这段时间内，总的访问次数是100次，那么这个页面或网站的平均访问时长就是1000秒/100=10秒。</p>
+<p>该数据是分析用户粘性的重要指标之一，也可以侧面反映出网站的用户体验。平均访问时长越短，说明网站对用户的吸引力越差，可用内容信息越少。</p>
+<h2 id="转化率"><a href="#转化率" class="headerlink" title="转化率"></a>转化率</h2><p>在一个统计周期内，完成转化行为的次数占推广信息总点击次数的比率。</p>
+<p>转化率=(转化次数/点击量)×100%。以用户登录行为举例，如果每100次访问中，有10个登录网站，那么此网站的登录转化率就为10%，而最后有2个用户关注了商品，则关注转化率为2%，有一个用户产生订单并付费，则支付转化率为1%。</p>
+<p>转化率是产品盈利的重要指标之一，它直接反映了产品的盈利能力。不同行业的转化率，关注点也不同，比如电商产品就要关注销售转化，看看参与活动的用户当中有多少是在活动后产生支付的，有需要的还可以根据数据分析出人均购买次数和购买金额。再比如我们监测注册量，就要关注注册转化率，看看这个活动给产品带来了多少新增用户。所以转化率可以针对性分析产品在哪些方面做的不足，可以快速定位到问题点。</p>
+<h2 id="转化率是采用访客数量（UV）还是访问量（PV）？"><a href="#转化率是采用访客数量（UV）还是访问量（PV）？" class="headerlink" title="转化率是采用访客数量（UV）还是访问量（PV）？"></a>转化率是采用访客数量（UV）还是访问量（PV）？</h2><p>这需要根据团队数据分析的目的而定。比如采用访问量，就是认为每次访问都可产生付费。若采用访客量，就认为用户多次访问才能购买是正常的行为。个人建议前期采用访客数量，以排除自己团队对网站访问的数据干扰，因为访问量是可以通过同一个IP不断刷新网页而递增的，而访客数量是精准到一个IP地址（既一个用户、一个设备）。</p>
+<h2 id="回购率"><a href="#回购率" class="headerlink" title="回购率"></a>回购率</h2><p>指用户对商品或者服务的重复购买次数（回头客）。</p>
+<p>重复购买率有两种计算方法：一是所有购买过产品的用户，以每个人为独立单位重复购买产品的次数，比如有10个客户购买了产品，5个产生了重复购买，则重复购买率为50%；二是单位时间内，重复购买的总次数占比，比如10个客户购买了产品，其中有3人产生二次购买，3人中又有1人产生三次购买，则重复购买次数为4次，重复购买率为40%。重复购买率越高，则用户对产品的忠诚度就越高，反之则越低。</p>
+<h1 id="三、用户数据指标"><a href="#三、用户数据指标" class="headerlink" title="三、用户数据指标"></a>三、用户数据指标</h1><h2 id="ARPU"><a href="#ARPU" class="headerlink" title="ARPU"></a>ARPU</h2><p>即每个用户<strong>平均收入</strong>。</p>
+<p>ARPU=总收入/用户数。</p>
+<p>它注重的是一个时间段内运营商从每个用户所得到的收入，衡量互联网公司业务收入的指标。ARPU值高说明平均每个用户贡献的收入高，但无法反映利润情况，因为利润还需要考虑到成本。如果用户的成本也很高，那么即使ARPU值很高，利润也未必高。</p>
+<p>而用户数可以是总平均在线用户数、付费用户数或是活跃用户数，不同产品标准可能存在差异。ARPU注重特定时间段内从每个用户所得到的收入，衡量互联网公司业务收入的指标。ARPU值高说明平均每个用户贡献的收入高，但未必说明利润高，因为利润还需要减去成本。ARPU的高低没有绝对的好坏之分，分析的时候需要有一定的标准。ARPU值高说明平均每个用户贡献的收入高，这段时间业务在上升。</p>
+<h2 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h2><p>既安装应用后，<strong>首次成功启动</strong>产品的用户</p>
+<p>按照统计跨度不同分为日新增（DNU）、周新增（WAU）、月新增（MAU）。新增用户按照设备维度进行去重统计，如果该设备卸载了应用，一段时间后又重新安装了该应用，且设备未进行重置，若再次打开应用，则不被计算为一个新增用户。</p>
+<p>新增用户量指标主要是衡量营销推广渠道效果的最基础指标。新增用户占活跃用户的比例也可以用来用于衡量产品健康程度（产品没有新增和活跃，就进入“绝症状态”）。如果某产品新用户占比过高，那说明该产品的活跃是靠推广得来，这种情况非常有必要关注，尤其是新增用户的留存率情况。<br><img src="https://note.youdao.com/yws/public/resource/5b9115d331343583be2e7bdd9c3afdae/xmlnote/WEBRESOURCE4a1cc40685829aa5a18f2b985aacdc98/2790" srcset="/img/loading.gif" alt=""></p>
+<h2 id="活跃用户"><a href="#活跃用户" class="headerlink" title="活跃用户"></a>活跃用户</h2><p>既在特定的统计周期内，成功启动过产品的用户。除此之外，我们还可以将活跃用户定义为某统计周期内操作过产品核心功能的用户（按照设备去重统计）。</p>
+<p>活跃用户是衡量产品用户规模的重要指标，和新增用户相辅相成。如果只看一个指标来定义产品的成功与否，那一定是活跃用户数。当然，一般重点关注核心用户规模即可。希望用户每天都使用的应用有新闻APP、社交APP、音乐APP等，其产品的KPI考核指标一般都有日活跃用户数这项。但对于某些低频消费需求和临时性需求的APP，比如旅游、摄影、工具类等，可能会关注月活跃数，甚至特定周期内的活跃数。</p>
+<p>活跃用户数根据不同统计周期可以分为<strong>日活跃数（DAU）、周活跃数（WAU）、月活跃数（MAU）</strong>。</p>
+<ul>
+<li><p>DAU（日活）：某个自然日内成功启动过应用的用户，该日内同一个设备多次启动只记一个活跃用户；</p>
+</li>
+<li><p>WAU（周活）：某个自然周内成功启动过应用的用户，该周内同一个设备多次启动只记一个活跃用户。这个指标是为了查看用户的类型结构，如轻度用户、中度用户、重度用户等；</p>
+</li>
+<li><p>MAU（月活）：某个自然月内成功启动过应用的用户，该月内同一个设备多次启动只记一个活跃用户。这个指标一般用来衡量被服务的用户粘性以及服务的衰退周期。</p>
+</li>
+</ul>
+<h2 id="留存率"><a href="#留存率" class="headerlink" title="留存率"></a>留存率</h2><p>既在某一统计时段内的新增用户数中再经过一段时间后仍启动该应用的用户比例（留存率=留存用户/新增用户*100%）。通常重点关注次日、3日、7日、30日即可，并观察留存率的衰减程度。</p>
+<ul>
+<li><p>次日留存率：即某一统计时段新增用户在第二天再次成功启动应用的比例。如果次日留存率达到50%以上，说明这个产品已经是非常优秀了；</p>
+</li>
+<li><p>7日（周）留存率：即某一统计时段新增用户在第7天再次成功启动该应用的比例。这个时间段内，用户通常会经历一个完整的产品体验周期，如果这个阶段用户能够留下来继续使用，很有可能成为产品的忠实用户；</p>
+</li>
+<li><p>30日（月）留存率：即某一统计时段新增用户在第30天再次成功启动该应用的比例。通常移动端产品的迭代周期为2~4周一个版本，所以月留存率能够反映出一个版本的用户留存情况，一个版本的更新，或多或少会影响部分用户的体验，所以通过对比月留存率能判断出每个版本的更新对用户的影响面积，从而定位到类似问题进行优化。<br><img src="https://note.youdao.com/yws/public/resource/5b9115d331343583be2e7bdd9c3afdae/xmlnote/WEBRESOURCE654e5c41468f1b7df21857c63f1db98c/2792" srcset="/img/loading.gif" alt=""></p>
+</li>
+</ul>
+<h3 id="若以上时段的留存率低，会映射出哪些问题？"><a href="#若以上时段的留存率低，会映射出哪些问题？" class="headerlink" title="若以上时段的留存率低，会映射出哪些问题？"></a>若以上时段的留存率低，会映射出哪些问题？</h3><ul>
+<li><p>次日留存率低：说明所针对的用户群对我们的产品不感兴趣；</p>
+</li>
+<li><p>7日留存率低：说明我们产品的内容质量太差，用户过了新鲜劲儿之后发现产品用起来特别枯燥；</p>
+</li>
+<li><p>30日留存率低：版本迭代规划做得不好，功能更新、内容更新、BUG修复、性能等都做得比较差，此时需要重新规划迭代内容，不可一错再错。</p>
+</li>
+</ul>
+<p>留存率是验证用户粘性的关键指标，设计师和产品经理通常可以利用留存率与竞品对标，衡量用户的粘性和忠诚度。对于一个版本相对成熟的产品，如果留存率有明显变化，那就说明用户质量有变化，很可能是因为推广渠道等因素所引起的。同时，留存率也是产品改版的重要指标，产品体验越好，越符合用户需求，则留存率越高。若产品本身满足的是小众低频需求，留存率则选择双周甚至是30日进行监测。一般来说，留存率低于20%会是一个比较危险的信号。</p>
+<h2 id="流失率"><a href="#流失率" class="headerlink" title="流失率"></a>流失率</h2><p>指那些曾经使用过产品或服务，由于各种原因不再使用产品或服务的用户。用户流失率=某段时间内不再启动应用的用户/某段时间内总计的用户量。流失率和留存率有紧密关联，流失率高既留存率低，但活跃度不一定高，因此需要综合分析。也是重点关注次日、7日、30日的流失率。</p>
+<p>对于流失用户的界定依照产品服务的不同而标准不同，对于微博和邮箱这类用户几乎每天登录查看的产品而言，可能用户未登录超过1个月，我们就可以认为用户可能已经流失了。而对于电商产品而言，可能3个月未登录或者半年内没有任何购买行为的用户可以被认定是流失用户，所以不是每个产品都有固定的流失期限，而是根据产品属性而判断。设计师和产品经理需要找到流失的异常数据，定位流失用户的原因，并在下个版本中修复产品中存在的问题。甚至还可以定位到流失的具体用户ID，通过当时用户注册的个人信息进行跟进，我们最常见的就是游戏类产品“召回老玩家”的运营手段。</p>
+<h2 id="一次性用户"><a href="#一次性用户" class="headerlink" title="一次性用户"></a>一次性用户</h2><p>既新增日后再也没有启动过应用的用户。</p>
+<p>一次性用户是关键的营销指标，和判断无效用户的标准，从中把目标用户过滤出来。一般划定的界限是至少超过7天时间才能够定义是否是一次性用户。</p>
+<h2 id="使用时长"><a href="#使用时长" class="headerlink" title="使用时长"></a>使用时长</h2><p>既统计时间段内，某个设备从启动应用到结束使用的总计时长。</p>
+<p>一般按照人均使用时长、次均使用时长、单次使用时长进行分析，衡量用户产品着陆的粘性，也是衡量活跃度，产品质量的参考依据。</p>
+<h2 id="启动次数"><a href="#启动次数" class="headerlink" title="启动次数"></a>启动次数</h2><p>既统计时间段内，用户打开应用的次数。</p>
+<p>重点关注人均启动次数，结合使用时长可进行分析。用户主动关闭应用或应用进入后台超过30s，再返回或打开应用时，则统计为两次启动，启动次数主要看待频数分布情况。</p>
+<h2 id="使用间隔"><a href="#使用间隔" class="headerlink" title="使用间隔"></a>使用间隔</h2><p>既用户上次使用应用的时间与再次使用时间的时间差。</p>
+<p>使用频数分布，观察应用对于用户的粘性，以及运营内容的深度。虽然是使用间隔，但是通过计算同一设备，先后两次启动的时间差，来完成使用间隔统计，充分考虑应用周期性和碎片化使用的特征。</p>
+<h1 id="四、如何获取这些数据"><a href="#四、如何获取这些数据" class="headerlink" title="四、如何获取这些数据"></a>四、如何获取这些数据</h1><p>在工作中可能会发生这种情况“上文提到的数据指标有些看不到”、“不知道怎么看”，最终因为没有数据而无法进行监测和分析。这里主要是因为在产品上线前没有对数据进行开发统计。这部分工作一般是由产品经理去规划，开发来执行，设计师也可以提出自己想要监测数据的需求给到开发，我们把这个规划叫做“数据埋点”。</p>
+<p>埋点其实是对产品的一个可视化健康检查，贯穿产品的整个生命周期，使产品逐步达到最佳状态（需要数据结果和产品迭代相互呼应），为未来产品优化方向给出指导意见。当然，埋点的目标不同，最终数据验证的结果也会有所不同。</p>
+<p>比如，新版本上线，需要验证用户行为和功能效果的几种场景：</p>
+<ul>
+<li><p>（1）新功能是否得到了用户的使用与认可？本次新增的功能用户点击率和活跃度怎样？</p>
+</li>
+<li><p>（2）用户在核心功能的操作路径上是否顺畅？有没有因为功能按钮的设计而导致无效点击增多？</p>
+</li>
+<li><p>（3）在某个特别的节日进行了产品内的banner推广或者促销，该活动运营的效果如何？新用户增长是怎样的？</p>
+</li>
+</ul>
+<p>…</p>
+<p>所以说，埋点是互联网领域非常重要的数据获取手段。埋点采集信息的过程一般也称作日志采集。通俗点讲，就是在APP或者WEB产品中植入一段代码，监控用户行为事件。典型的应用场景就是某个运营活动，页面的点击量（PV）有多少，点击用户数（UV）有多少，都是用埋点数据进行计算的。当然这些信息并不是消费一次就没用了。通过埋点收集到的信息，可以作为监控并通过可视化数据呈现出来，帮助产品、设计、运营人员看到产品的长期表现，也可以作为基础原料，进行复杂的运算，用于用户标签、渠道转化分析、个性推荐等等。比如我们用某资讯类产品看新闻的时候，会发现每次推荐的内容都是上次所点击的相关类别，这就是通过埋点数据获取的用户行为习惯，通过数据进行个性化推荐。</p>
+<p>除了对需要监测的特定功能区做埋点之外，一般大公司也有自主研发的供内部产品组使用的数据分析系统，一些关键数据在上面都能够实时监测到，并有特定的团队去维护它。其次，现在市场上还有很多数据统计工具可以自动监测到产品的相关数据，大多都是付费的，这里就不打广告了，百度搜索关键词会出现一大堆类似的数据监测产品。</p>
+<h1 id="五、产品阶段不同，关注的数据也不同"><a href="#五、产品阶段不同，关注的数据也不同" class="headerlink" title="五、产品阶段不同，关注的数据也不同"></a>五、产品阶段不同，关注的数据也不同</h1><p>产品阶段就是产品生命周期，可分为<strong>初创期、成长期、成熟期、衰退期</strong>，每个阶段的工作权重和数据关注点都会有所区别。<br><img src="https://note.youdao.com/yws/public/resource/5b9115d331343583be2e7bdd9c3afdae/xmlnote/WEBRESOURCE7a16c787e34ad96c1c9b26b202e72db8/2794" srcset="/img/loading.gif" alt=""></p>
+<h2 id="1、初创期"><a href="#1、初创期" class="headerlink" title="1、初创期"></a>1、初创期</h2><p>初创期的重点在于验证产品的核心价值，通过某种产品或服务可以为特定的人群解决某个问题。这时我们需要关注的关键数据是目标用户画像，同时是第一批种子用户对产品的使用情况和反馈建议。所以初创期更需要设计师和产品经理去做定性分析（比如用户访谈），直接确定产品是否满足了用户需求、产品有没有覆盖到更多的使用场景等。因此产品初期我们可以不用在数据分析上投入更多精力。说白了，该阶段用户量较少，用户行为等数据还停留在比较初期的阶段，所以数据分析的效果不能发挥到最大化，且价值不明显。该阶段就是先保证产品顺利上路，同时要绑定一批种子用户，解决基本的用户诉求，让产品和团队先生存下来。阶段与手段不匹配的情况下，还把某些事情强加上去，这就是“作秀”。</p>
+<h2 id="2、成长期"><a href="#2、成长期" class="headerlink" title="2、成长期"></a>2、成长期</h2><p>经过了产品打磨的初始阶段，产品一般会有较好的留存率，这个时候产品开始进入自发增长期（成长期）。该阶段的产品已经能够解决用户的基本诉求了，所以将侧重点关注在用户的生命周期的管理，为产品吸引更多的新用户来使用（新鲜血液），既拉新和留存，那么我们数据关注的重点也要放在拉新和留存上。</p>
+<h3 id="拉新要关注推广数据和推荐数据："><a href="#拉新要关注推广数据和推荐数据：" class="headerlink" title="拉新要关注推广数据和推荐数据："></a>拉新要关注推广数据和推荐数据：</h3><ul>
+<li><p>（1）推广数据：就是产品以拉新目的所采取的所有推广运营活动和行为的指标数据，不同推广方式（线上+线下）的到达率、触达面积、点击率、转化率、二次访问率、流失率。比如我们举办了一场线下活动，现场实到多少人、哪些是目标用户、哪些不是目标用户、有多少人当场试用了我们的产品，又有多少人在活动后下载了产品等等。</p>
+</li>
+<li><p>（2）推荐数据：是用户是否愿意将产品推荐给他人的行为数据分析。这里我们在数据上可以关注整个分享环节动态，比如产品有100个种子用户，他们中有多少人只是自己用产品、有多少人会分享给朋友、他们的分享行为带来了多少新增用户等，这些数据会告诉我们产品在用户心中的位置。</p>
+</li>
+</ul>
+<h3 id="留存则是要做用户的留存分析："><a href="#留存则是要做用户的留存分析：" class="headerlink" title="留存则是要做用户的留存分析："></a>留存则是要做用户的留存分析：</h3><p>重点有用户的次日留存率、7日留存率、30日留存率、日活、周活、月活、产品页面访问深度、退出率等等。需要注意的是，这些指标不能单独监测，需要将他们结合起来看。说透了，留存就是要提高目标用户在核心场景的反复出现频率和停留时间（核心场景既产品的主要功能、主要盈利模式和用户最喜欢的模块）。</p>
+<h2 id="3、成熟期"><a href="#3、成熟期" class="headerlink" title="3、成熟期"></a>3、成熟期</h2><p>随着用户快速增长，产品不断完善，产品在进入成熟期前后，设计师和产品经理的重心开始从用户生命周期的前半段（吸引、激活、留存）往后半段（流失、回流）开始偏移并做出相应的产品设计，同时也更关注商业化行为，既用户价值（用户给产品带来的价值，产品给开发者带来的价值）。</p>
+<p>这里的用户价值指的是用户对公司和产品的商业价值，既解决产品诉求。和我们经常说的用户诉求有所不同。该阶段我们要根据用户的情况进行细分，“保大弃小”，尽可能提升高价值用户的活跃度，对于低价值用户可以适当地减少投入精力。有增长就有减少，所以除了对用户活跃度的关注之外，还需关注核心场景的用户行为数据和高价值用户的流失率。</p>
+<p>假设我们的产品日活和周活都很高，但是核心场景上的点击率或是停留时间非常低，核心场景关系到公司商业目标和价值的实现，用户在这一块的行为少，要么你的用户不是目标用户，要么你的核心场景存在比较大的缺陷让用户不满意。高价值用户的流失率也是一个道理，都是值得引起我们警惕的数据指标。</p>
+<h2 id="4、衰退期"><a href="#4、衰退期" class="headerlink" title="4、衰退期"></a>4、衰退期</h2><p>每个产品都有一个生命周期，这是受市场因素导致的，此时用户会逐渐流失（这里说的流失并不是完全放弃我们的产品，而是从降低活跃度渐渐走到消失），既被其它新产品的体验模式所吸引，所以这时应该更关注用户流失后使用的产品，分析竞品的商业模式和功能，同时监测流失速度，需尽快拓展产品边界，寻找新的切入点。</p>
+<h1 id="六、敲黑板"><a href="#六、敲黑板" class="headerlink" title="六、敲黑板"></a>六、敲黑板</h1><h2 id="1、改版前不放在心上，迭代发布后才关注数据"><a href="#1、改版前不放在心上，迭代发布后才关注数据" class="headerlink" title="1、改版前不放在心上，迭代发布后才关注数据"></a>1、改版前不放在心上，迭代发布后才关注数据</h2><p>对于平常就很少关注数据的设计师来说，经常在改版前因为专注于界面上的优化，而忽略了真实的用户行为。</p>
+<p>真实案例：我们产品中有一个步进器组件，用于客户选择相应的天数，且此项为必填项。之前我们内部的沟通结果是提供一个7天的默认值，当然对此默认值是有争议的，有的同事认为默认10天比较合理，所以为了验证用户的操作习惯，我们在上线前对该组件进行了埋点。经过用户使用过一段时间之后，我们通过数据发现大部分用户在使用步进器时，点击“减少”比“增加”的次数要多，而且一般停留在5天，就这样我们把默认值从7天优化为5天，减少了大部分用户的2次点击，并且在类似的业务模块内，会记住用户上次所选的值，从而提高填写表单的效率。<br><img src="https://note.youdao.com/yws/public/resource/5b9115d331343583be2e7bdd9c3afdae/xmlnote/WEBRESOURCE72beb8fddeb40cc43ad45a618b7b971b/2796" srcset="/img/loading.gif" alt=""></p>
+<p>虽然只是一个小小的交互优化，但足以证明设计师关注产品数据不仅能够验证设计结果，还能对产品体验不断打磨，精细化提升用户体验。很显然，如果没有此次对数据的监测和教训，只会让我们继续活在自己的世界里，永远也不会在意这个小问题，导致这个组件继续复用、滥用，一错再错，直到用户亲自给我们提优化建议的时候，就已经太晚了。</p>
+<p>所以，如果你想让某个设计方案更贴近用户或者想对比改版前后的效果，那就需要提前将自己的埋点需求整理成Excel表格，发给相关的开发同事，再对照交互原型详细讨论这些埋点，确保双方理解一致，不至于最后埋点的数据不是自己想要的。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BA%A7%E5%93%81-%E8%BF%90%E8%90%A5/">产品&运营</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BF%90%E8%90%A5%E5%90%8D%E8%AF%8D/">运营名词</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/21/%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5/%E8%BF%90%E8%90%A5%E6%A1%86%E6%9E%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">运营框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/20/%E9%87%91%E8%9E%8D%E8%B4%A2%E7%BB%8F/%E6%89%93%E6%96%B0/">
+                        <span class="hidden-mobile">最简单的赚钱方式--打新</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+    <!-- 网站运行时间的设置 -->
+    <div  style="margin: o.25rem,0;font-size: 0.85rem;text-align: center;">
+    <!-- 网站运行时间的设置 -->
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("06/01/2020 13:14:21");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "你需要知道的运营指标释义&nbsp;",
+      ],
+      cursorChar: "❤️",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
