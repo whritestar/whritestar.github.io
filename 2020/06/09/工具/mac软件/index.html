@@ -205,7 +205,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：12 天前
+                  本文最后更新于：14 天前
                 
               </p>
             
@@ -288,6 +288,31 @@
               <div class="comments" id="comments">
                 
                 
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "EcGq8zs0oYh83YPO4aEWXS1S-gzGzoHsz",
+          app_key: "lJTSIow7vCo6iOKI3SdrVyDE",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://ecgq8zs0.lc-cn-n1-shared.com",
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
 
               </div>
             
